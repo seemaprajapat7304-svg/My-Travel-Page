@@ -1,0 +1,563 @@
+/* =========================================================
+   Land of Kings - Rajasthan travel website
+   Theme: Jaipur pink + Jodhpur blue, with marigold gold
+   ========================================================= */
+
+:root {
+    --pink: #D6246E;        /* rani pink (Jaipur) */
+    --pink-soft: #FFE3EE;   /* blush */
+    --pink-page: #FFF5F9;   /* page background */
+    --blue: #2A6FDB;        /* Jodhpur blue */
+    --indigo: #14246B;      /* deep night blue */
+    --gold: #F5A800;        /* marigold */
+    --saffron: #FF7A1A;     /* saffron orange */
+    --ink: #2B1B3D;         /* body text */
+
+    --font-display: "Yatra One", "Georgia", serif;
+    --font-body: "Mukta", "Segoe UI", Arial, sans-serif;
+
+    --radius: 16px;
+    --wrap: 1120px;
+}
+
+/* ---------- Base ---------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--ink);
+    background: var(--pink-page);
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    line-height: 1.15;
+    margin: 0 0 0.5em;
+}
+
+p {
+    margin: 0 0 1em;
+}
+
+a {
+    color: var(--blue);
+}
+
+:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 3px;
+}
+
+/* A band of Rajasthani colours, used as a divider */
+.stripe {
+    height: 14px;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--pink) 0 40px,
+        var(--gold) 40px 80px,
+        var(--blue) 80px 120px,
+        var(--saffron) 120px 160px
+    );
+}
+
+/* ---------- Header ---------- */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px 24px;
+    padding: 10px 24px;
+    background: #fff;
+    border-bottom: 5px solid var(--pink);
+    box-shadow: 0 4px 0 var(--blue);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--indigo);
+}
+
+.logo {
+    width: 44px;
+    height: 44px;
+}
+
+.brand-text {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.main-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 6px;
+}
+
+.main-nav a {
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    color: var(--indigo);
+}
+
+.main-nav a:hover {
+    background: var(--pink);
+    color: #fff;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    text-decoration: none;
+    border: 3px solid transparent;
+    transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-pink {
+    background: var(--pink);
+    color: #fff;
+    border-color: #fff;
+}
+
+.btn-pink:hover {
+    background: #b81a5b;
+}
+
+.btn-gold {
+    background: var(--gold);
+    color: var(--indigo);
+}
+
+.btn-gold:hover {
+    background: #ffbc2e;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: center;
+    padding: 56px 24px 72px;
+    color: #fff;
+    /* bandhani dots over a blue-to-indigo sky */
+    background:
+        radial-gradient(circle, rgba(255, 255, 255, 0.22) 2.5px, transparent 3px) 0 0 / 28px 28px,
+        radial-gradient(circle, rgba(245, 168, 0, 0.35) 2.5px, transparent 3px) 14px 14px / 28px 28px,
+        linear-gradient(160deg, var(--blue) 0%, var(--indigo) 100%);
+}
+
+.hero-text {
+    max-width: 560px;
+    animation: rise 0.8s ease both;
+}
+
+.hero-kicker {
+    display: inline-block;
+    margin-bottom: 14px;
+    padding: 4px 16px;
+    border-radius: 999px;
+    background: var(--gold);
+    color: var(--indigo);
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.hero h1 {
+    font-size: clamp(3rem, 9vw, 5.5rem);
+    color: #fff;
+    text-shadow: 4px 4px 0 var(--pink);
+}
+
+.hero-lead {
+    font-size: 1.3rem;
+    color: var(--pink-soft);
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 28px;
+}
+
+/* The image sits inside a jharokha (palace window) arch */
+.hero-arch {
+    width: min(360px, 82%);
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 999px 999px 24px 24px;
+    background: linear-gradient(180deg, var(--gold), var(--pink));
+    box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.18);
+}
+
+.hero-arch img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: 999px 999px 16px 16px;
+    background: var(--pink-soft);
+}
+
+@keyframes rise {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* ---------- Sections ---------- */
+.section {
+    padding: 72px 24px;
+}
+
+.section > *,
+.guide > *,
+.site-footer > h3,
+.site-footer > p {
+    max-width: var(--wrap);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-tint {
+    background: var(--pink-soft);
+}
+
+.section h2,
+.guide h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--indigo);
+    margin-bottom: 1.2em;
+}
+
+/* three dots (pink, gold, blue) under every section title */
+.section h2::after,
+.guide h2::after {
+    content: "";
+    display: block;
+    width: 84px;
+    height: 12px;
+    margin-top: 14px;
+    background-repeat: no-repeat;
+    background-image:
+        radial-gradient(circle at 6px 6px, var(--pink) 5.5px, transparent 6px),
+        radial-gradient(circle at 42px 6px, var(--gold) 5.5px, transparent 6px),
+        radial-gradient(circle at 78px 6px, var(--blue) 5.5px, transparent 6px);
+    background-size: 100% 100%;
+}
+
+/* ---------- About ---------- */
+.about-grid {
+    display: grid;
+    gap: 20px;
+}
+
+.about-grid p {
+    margin: 0;
+    padding: 28px;
+    font-size: 1.3rem;
+    border-radius: var(--radius);
+    background: #fff;
+    border-left: 8px solid var(--pink);
+    box-shadow: 6px 6px 0 var(--blue);
+}
+
+.about-grid p:nth-child(2) {
+    border-left-color: var(--gold);
+    box-shadow: 6px 6px 0 var(--pink);
+}
+
+/* ---------- Places ---------- */
+.places-wrap {
+    display: grid;
+    gap: 40px;
+}
+
+.places-wrap h3 {
+    font-size: 1.6rem;
+    color: var(--pink);
+}
+
+.place-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 14px;
+}
+
+.place-list li {
+    display: flex;
+    flex-direction: column;
+    padding: 14px 20px;
+    background: #fff;
+    border-radius: 12px;
+    border-left: 10px solid var(--pink);
+    line-height: 1.4;
+}
+
+.place-list li:nth-child(4n + 2) { border-left-color: var(--blue); }
+.place-list li:nth-child(4n + 3) { border-left-color: var(--gold); }
+.place-list li:nth-child(4n + 4) { border-left-color: var(--saffron); }
+
+.place-list strong {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.35rem;
+    color: var(--indigo);
+}
+
+.place-list span {
+    font-size: 1rem;
+    color: #5b4a70;
+}
+
+/* ---------- Gallery ---------- */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 36px 28px;
+}
+
+.gallery figure {
+    --accent: var(--pink);
+    margin: 0;
+    padding: 8px 8px 14px;
+    text-align: center;
+    background: #fff;
+    border-radius: 999px 999px 18px 18px;
+    border: 4px solid var(--accent);
+    box-shadow: 6px 6px 0 var(--accent);
+}
+
+.gallery figure:nth-child(4n + 2) { --accent: var(--blue); }
+.gallery figure:nth-child(4n + 3) { --accent: var(--gold); }
+.gallery figure:nth-child(4n + 4) { --accent: var(--saffron); }
+
+.gallery img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 999px 999px 12px 12px;
+    background: var(--pink-soft);
+    transition: transform 0.3s ease;
+}
+
+.gallery figure:hover img {
+    transform: scale(1.04);
+}
+
+/* clip the zoom inside the arch */
+.gallery figure {
+    overflow: hidden;
+}
+
+.gallery figcaption {
+    margin-top: 12px;
+    padding: 0 8px;
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    line-height: 1.3;
+    color: var(--indigo);
+}
+
+/* ---------- Food ---------- */
+.food-card {
+    display: grid;
+    overflow: hidden;
+    border-radius: 24px;
+    background: linear-gradient(135deg, var(--saffron), var(--pink));
+    color: #fff;
+    box-shadow: 8px 8px 0 var(--indigo);
+}
+
+.food-card img {
+    width: 100%;
+    height: 100%;
+    min-height: 240px;
+    max-height: 420px;
+    object-fit: cover;
+}
+
+.food-text {
+    padding: 32px;
+    align-self: center;
+}
+
+.food-text h3 {
+    font-size: 2rem;
+    color: #fff;
+}
+
+.food-text p {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+/* ---------- Travel guide ---------- */
+.guide {
+    padding: 72px 24px;
+    text-align: center;
+    color: #fff;
+    background:
+        radial-gradient(circle, rgba(255, 255, 255, 0.2) 2.5px, transparent 3px) 0 0 / 28px 28px,
+        linear-gradient(160deg, var(--indigo), var(--blue));
+}
+
+.guide h2 {
+    color: #fff;
+}
+
+.guide h2::after {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.guide p {
+    font-size: 1.25rem;
+    color: var(--pink-soft);
+}
+
+/* ---------- About me ---------- */
+.me-card {
+    max-width: 640px;
+    padding: 28px 32px;
+    border-radius: var(--radius);
+    background: #fff;
+    border: 4px solid var(--blue);
+    box-shadow: 8px 8px 0 var(--pink);
+}
+
+.me-card p:last-child {
+    margin-bottom: 0;
+}
+
+.me-card strong {
+    color: var(--pink);
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+    padding-bottom: 40px;
+    text-align: center;
+    color: #fff;
+    background: var(--indigo);
+}
+
+.site-footer .stripe {
+    margin-bottom: 36px;
+}
+
+.site-footer h3 {
+    font-size: 2rem;
+    color: var(--gold);
+    margin-bottom: 0.2em;
+}
+
+.site-footer p {
+    margin: 0 auto;
+    color: var(--pink-soft);
+}
+
+/* ---------- Bigger screens ---------- */
+@media (min-width: 760px) {
+    .about-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .places-wrap {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .food-card {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .food-card img {
+        max-height: none;
+    }
+}
+
+@media (min-width: 900px) {
+    .hero {
+        grid-template-columns: 1.1fr 0.9fr;
+        padding: 72px max(24px, calc((100vw - var(--wrap)) / 2)) 88px;
+    }
+
+    .hero-arch {
+        width: min(400px, 100%);
+    }
+}
+
+/* ---------- Small phones ---------- */
+@media (max-width: 520px) {
+    .site-header {
+        padding: 10px 14px;
+    }
+
+    .brand-text {
+        font-size: 1.3rem;
+    }
+
+    .main-nav a {
+        padding: 5px 10px;
+        font-size: 0.95rem;
+    }
+}
+
+/* ---------- Respect reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .hero-text {
+        animation: none;
+    }
+
+    .btn,
+    .gallery img {
+        transition: none;
+    }
+}
